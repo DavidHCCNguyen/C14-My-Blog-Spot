@@ -1,0 +1,53 @@
+# Directories
+node_modules/
+bower_components/
+dist/
+build/
+bin/
+tmp/
+logs/
+cache/
+
+# Files
+*.log
+*.gz
+*.zip
+*.tar
+*.tar.gz
+.DS_Store
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.idea/
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+npm-shrinkwrap.json
+
+# Compiled files
+*.class
+*.war
+*.jar
+*.ear
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Miscellaneous
+*.swp
+*.bak
+*.tmp
+*.DS_Store
+Thumbs.db
