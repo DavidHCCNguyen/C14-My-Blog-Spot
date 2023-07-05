@@ -1,32 +1,46 @@
+const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars as the template engine
-app.engine('handlebars', exphbs());
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
+
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Define routes
-app.get('/', (req, res) => {
-  res.render('home', {
-    pageTitle: 'Home',
-    message: 'Welcome to the homepage!'
-  });
-});
+app.use(routes);
 
-app.get('/about', (req, res) => {
-  res.render('about', {
-    pageTitle: 'About',
-    message: 'This is the about page.'
-  });
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });
