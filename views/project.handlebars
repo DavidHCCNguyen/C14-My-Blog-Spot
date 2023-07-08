@@ -1,3 +1,5 @@
+<!-- project.handlebars -->
+
 <div class="text-center">
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
@@ -8,7 +10,15 @@
     <span class="dollar-amount">{{format_amount needed_funding}}</span>
     needed
   </p>
-  <p>
-    <button class="btn btn-primary">Add New Comment</button>
-  </p>
+  <div class="add-comment-form">
+    <h3>Add New Comment</h3>
+    <form action="/comments" method="POST">
+      <div class="form-group">
+        <textarea class="form-control manual-size" id="comment" name="comment" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
 </div>

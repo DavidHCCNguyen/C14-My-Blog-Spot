@@ -1,17 +1,22 @@
 [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "needed_funding": 5000
+    "name": "What is html again?",
+    "description": "Honestly I am still new to this so could I ask for assistance?",
+    "needed_funding": 0
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    "name": "Any thoughts on js only gameplay?",
+    "description": "I love to think that I would love to do a text base game using only js, is it possible?",
+    "needed_funding": 0
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "name": "Pc, where to start?",
+    "description": "I have a budget of 1000$ dollars, so can I have sets or suggections?",
+    "needed_funding": 1000
+  },
+  {
+    "name": "CHEERS TO CODING",
+    "description": "We are going to open an event for best game made within a week, we need funding!",
+    "needed_funding": 20000
   }
 ]
