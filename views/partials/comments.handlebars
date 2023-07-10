@@ -1,8 +1,8 @@
 <div class="add-comment-form">
   <h3>Add New Comment</h3>
-  <form action="/project/{{projectId}}" method="POST" class="comment-form">
+  <form id="comment-form" class="comment-form">
     <div class="form-group">
-      <textarea class="form-control manual-size" id="comment" name="comment" rows="4" required></textarea>
+      <textarea class="form-control manual-size" id="new-comment" name="new-comment" rows="4" required></textarea>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -16,6 +16,5 @@
     <p></p>
   </div>
 </div>
-
 
 <script src="../../public/js/comments.js"></script>
