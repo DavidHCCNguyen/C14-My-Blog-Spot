@@ -1,6 +1,31 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+# 14 Tech Blog
 
 ## Task
+
+the task is to create a good looking website for
+people who are into or inside the tech industry or who want to ask questions.
+
+Creating such a website, you need the bases of these folders:
+
+```
+-config
+-controllers/api
+-db
+-models
+-public/js,css
+-seeds
+-utils
+view/layouts,partials
+
+and the general:
+-env
+-gitingore
+-server.js
+```
+
+This website contains this look:
+
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
 
 ## Criteria
 
@@ -38,7 +63,3 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
-
-## Mock-Up
-
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
