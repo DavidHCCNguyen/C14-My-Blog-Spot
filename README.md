@@ -25,7 +25,10 @@ and the general:
 
 This website contains this look:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/Capture.PNG)
+
+Users can log in or create an account to log in with.
+If the user waits too long they will be logged off after checking another page or refreshing.
 
 ## Criteria
 
