@@ -13,8 +13,11 @@
 <div class='comment'>
   <h3>Comments:</h3>
   <div class="comments-container">
-    <p></p>
+    {{#each comments}}
+      <p>{{this}}</p>
+    {{/each}}
   </div>
 </div>
+
 
 <script src="../../public/js/comments.js"></script>

@@ -1,9 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Project, Comment } = require('../models');
 
 const userData = require('./userData.json');
 const projectData = require('./projectData.json');
-const comments = require('./comments.json')
+const commentsData = require('./comments.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,10 +14,22 @@ const seedDatabase = async () => {
   });
 
   for (const project of projectData) {
-    await Project.create({
+    const createdProject = await Project.create({
       ...project,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
+
+    // Associate comments with the created project
+    const projectComments = commentsData.filter(
+      (comment) => comment.projectId === project.id
+    );
+
+    for (const comment of projectComments) {
+      await Comment.create({
+        ...comment,
+        project_id: createdProject.id,
+      });
+    }
   }
 
   process.exit(0);

@@ -1,21 +1,31 @@
+const express = require('express');
+const router = express.Router();
 const fs = require('fs');
 
 // Read the existing comments from comments.json
 const commentsData = fs.readFileSync('comments.json');
 let comments = JSON.parse(commentsData);
 
-// Function to add a new comment to the comments array
-const addComment = (comment) => {
-  comments.push({ description: comment });
-};
+// Route: GET /api/comments
+router.get('/comments', (req, res) => {
+  res.json({ comments });
+});
 
-// Example usage
-addComment('This is a new comment');
+// Route: POST /api/comments
+router.post('/comments', (req, res) => {
+  const { comment } = req.body;
 
-// Write the updated comments array back to comments.json
-fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2));
+  if (comment) {
+    // Add the new comment to the comments array
+    comments.push(comment);
 
-console.log('New comment added successfully.');
+    // Write the updated comments array back to comments.json
+    fs.writeFileSync('comments.json', JSON.stringify(comments));
 
-// Export the addComment function
-module.exports = addComment;
+    res.status(200).json({ message: 'Comment added successfully' });
+  } else {
+    res.status(400).json({ error: 'Invalid comment' });
+  }
+});
+
+module.exports = router;
